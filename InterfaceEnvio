@@ -1,0 +1,114 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import javax.swing.JScrollBar;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.DropMode;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
+public class InterfaceEnvio extends JFrame implements ActionListener{
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void InterfaceEnvio() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					InterfaceEnvio frame = new InterfaceEnvio();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public InterfaceEnvio() {
+		setTitle("MailChecker");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 470);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Para");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(25, 85, 79, 32);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblAssunto = new JLabel("Assunto");
+		lblAssunto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblAssunto.setBounds(25, 128, 79, 32);
+		contentPane.add(lblAssunto);
+		
+		JLabel lblAnexo = new JLabel("Anexo");
+		lblAnexo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblAnexo.setBounds(25, 171, 79, 32);
+		contentPane.add(lblAnexo);
+		
+		JLabel lblTexto = new JLabel("Texto");
+		lblTexto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTexto.setBounds(25, 220, 79, 32);
+		contentPane.add(lblTexto);
+		
+		textField = new JTextField();
+		textField.setBounds(105, 93, 280, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(105, 136, 280, 20);
+		contentPane.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(105, 179, 280, 20);
+		contentPane.add(textField_2);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setLineWrap(true);
+		
+		JLabel lblEnviarEmail = new JLabel("Enviar Email");
+		lblEnviarEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblEnviarEmail.setBounds(138, 24, 177, 40);
+		contentPane.add(lblEnviarEmail);
+		
+		JButton btnNewButton = new JButton("Enviar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SendMail.sendMail(textField.getText(), textField_1.getText(), textArea.getText());
+			}
+		});
+		btnNewButton.setBounds(138, 384, 115, 36);
+		contentPane.add(btnNewButton);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setEnabled(false);
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(102, 220, 283, 153);
+		contentPane.add(scrollPane);
+		scrollPane.setViewportView(textArea);
+		System.out.println(Login.senha);
+	}
+}
