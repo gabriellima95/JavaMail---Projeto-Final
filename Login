@@ -1,0 +1,75 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
+
+public class Login extends JFrame implements ActionListener{
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JPasswordField passwordField;
+	static String email;
+	static String senha;
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Login frame = new Login();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	public Login() {
+		setTitle("Login");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 340, 205);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblLogin = new JLabel("Login");
+		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblLogin.setBounds(21, 24, 70, 35);
+		contentPane.add(lblLogin);
+		
+		JLabel lblSenha = new JLabel("Senha");
+		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblSenha.setBounds(21, 70, 70, 35);
+		contentPane.add(lblSenha);
+		
+		textField = new JTextField();
+		textField.setBounds(101, 34, 196, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Entrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				email = textField.getText();
+				senha = passwordField.getText();
+				InterfaceEnvio.InterfaceEnvio();
+			}
+		});
+		btnNewButton.setBounds(127, 111, 110, 44);
+		contentPane.add(btnNewButton);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(101, 80, 196, 20);
+		contentPane.add(passwordField);
+	}
+}
