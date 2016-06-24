@@ -16,10 +16,7 @@ import javax.swing.ScrollPaneConstants;
 public class InterfacePrincipal extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void InterfacePrinciapl() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,9 +30,6 @@ public class InterfacePrincipal extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public InterfacePrincipal() {
 		setTitle("MailChecker");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
