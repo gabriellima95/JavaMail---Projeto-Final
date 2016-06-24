@@ -1,0 +1,78 @@
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+
+public class InterfacePrincipal extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void InterfacePrinciapl() {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					InterfacePrincipal frame = new InterfacePrincipal();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public InterfacePrincipal() {
+		setTitle("MailChecker");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 590, 370);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Inbox");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(378, 11, 41, 30);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnEscrever = new JButton("Escrever");
+		btnEscrever.setBounds(44, 49, 110, 30);
+		contentPane.add(btnEscrever);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBounds(547, 52, 17, 268);
+		contentPane.add(scrollBar);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(216, 52, 348, 268);
+		contentPane.add(scrollPane);
+		
+		JTextArea textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		
+		JButton btnNewButton = new JButton("Criar Pasta");
+		btnNewButton.setBounds(44, 90, 110, 30);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Acessar Pasta");
+		btnNewButton_1.setBounds(44, 131, 110, 30);
+		contentPane.add(btnNewButton_1);
+		//textArea.setText();
+	}
+}
