@@ -1,0 +1,28 @@
+import org.apache.commons.mail.EmailException;  
+import org.apache.commons.mail.SimpleEmail;  
+
+public class SendMail {  
+    
+  public static void sendMail(String destinatario, String subtexto, String texto) {  
+
+      SimpleEmail email = new SimpleEmail();  
+      try {
+    	  email.setDebug(true);  
+          email.setHostName("smtp.gmail.com");  
+          email.setAuthentication(Login.email, Login.senha);  
+          email.setSSLOnConnect(true);  
+          email.addTo(destinatario); //pode ser qualquer email  
+          email.setFrom(Login.email); //será passado o email que você fará a autenticação
+          email.setSubject(subtexto);  
+          email.setMsg(texto);
+          email.send();  
+
+      } catch (EmailException e) {  
+
+      System.out.println(e.getMessage());  
+
+      }   
+
+  }  
+
+}
