@@ -23,9 +23,6 @@ public class InterfaceEnvio extends JFrame implements ActionListener{
 	private JTextField textField_1;
 	private JTextField textField_2;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void InterfaceEnvio() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -39,9 +36,6 @@ public class InterfaceEnvio extends JFrame implements ActionListener{
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public InterfaceEnvio() {
 		setTitle("MailChecker");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
